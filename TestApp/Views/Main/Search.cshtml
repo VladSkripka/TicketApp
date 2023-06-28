@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+
+@model IEnumerable<TestApp.Models.Flight>
+
+<h1>Search results</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>№</label>
+            </th>
+            <th>
+                <label>Відправлення з</label>
+            </th>
+            <th>
+                <label>Прибуття до</label>
+            </th>
+            <th>
+                <label>Дата</label>
+            </th>
+            <th>
+                <label>Час відправлення</label>
+            </th>
+            <th>
+                <label>Час прибуття</label>
+            </th>
+            <th>
+                <label>Ціна</label>
+            </th>
+            <th>
+                <label>Місць</label>
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.departure_point)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.destination)
+                </td>
+                <td>
+                    @item.dep_time.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @if (item.dep_time != null)
+                    {
+                        @item.dep_time.ToString("HH:mm")
+                    }
+                </td>
+                <td>
+                    @if (item.arrival_time != null)
+                    {
+                        @item.arrival_time.ToString("HH:mm")
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ticket_price) грн.
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sites_left) / @Html.DisplayFor(modelItem => item.sites)
+                </td>
+                <td>
+                    <a asp-action="СonfirmationUserDataView" asp-route-id="@item.PublicID">Купити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index">Повернутись</a>
+

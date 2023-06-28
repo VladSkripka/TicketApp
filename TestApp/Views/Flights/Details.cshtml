@@ -1,0 +1,72 @@
+﻿@model TestApp.Models.Flight
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.departure_point)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.departure_point)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.destination)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.destination)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dep_time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dep_time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.arrival_time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.arrival_time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ticket_price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ticket_price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sites)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sites)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sites_left)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sites_left)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PublicID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model TestApp.Models.SearchViewModel
+
+@using (Html.BeginForm("Search", "Main", FormMethod.Post))
+{
+    <div style="text-align:center">
+       <label for="departurePoint">Departure Point:</label>
+       <input type="text" id="departurePoint" name="DeparturePoint">
+
+       <label for="destination">Destination:</label>
+       <input type="text" id="destination" name="Destination">
+
+       <input type="submit" value="Search">
+    </div>
+
+}
+
+

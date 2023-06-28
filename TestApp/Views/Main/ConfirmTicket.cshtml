@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmTicket";
+}
+
+@model TestApp.Models.Ticket
+
+
+<h1>Підтвердження купівлі квитка</h1>
+<label>2/2</label>
+
+<div>
+    № рейсу:
+    @Html.DisplayFor(model => model.Flight.FID)<br>
+
+    Дата відправлення:
+    @Model.Flight.date.ToString("yyyy-MM-dd"))<br>
+
+    Відправлення з:
+    @Model.Flight.departure_point<br>
+
+    Прибуття до:
+    @Html.DisplayFor(model => model.Flight.destination)<br>
+
+    Час відпрвлення:
+    @Model.Flight.dep_time.ToString("HH:mm")<br>
+
+    Час прибуття:
+    @Model.Flight.arrival_time.ToString("HH:mm")<br>
+
+    Пасажир:
+    @Model.passenger_first @Model.passenger_last <br>
+
+    Ціна (грн):
+    @Model.Flight.ticket_price<br>
+
+    <button>Підтвердити</button> <button onclick="history.back()">Скасувати</button><br>
+
+
+</div>
+
+

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "СonfirmationUserDataView";
+}
+@model TestApp.Models.Ticket
+
+
+<h1>Підтвердження купівлі квитка</h1>
+
+<label>1/2</label>
+@using (Html.BeginForm("ConfirmTicket", "Main", FormMethod.Post))
+{
+     <div style="text-align:center">
+            <label for="user_last">Введіть ваше Прізвище</label>
+            <input type="text" id="user_last" name="passenger_last">
+            <br>
+            <label for="user_first">Введіть ваше Ім'я</label>
+            <input type="text" id="user_first" name="passenger_first">
+            <br>
+
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.Flight.FID)
+            @Html.HiddenFor(model => model.Flight.departure_point)
+            @Html.HiddenFor(model => model.Flight.destination)
+            @Html.HiddenFor(model => model.Flight.date)
+            @Html.HiddenFor(model => model.Flight.dep_time)
+            @Html.HiddenFor(model => model.Flight.arrival_time)
+            @Html.HiddenFor(model => model.Flight.ticket_price)
+            @Html.HiddenFor(model => model.Flight.sites)
+            @Html.HiddenFor(model => model.Flight.sites_left)
+
+        <input type="submit" value="Далі">
+        
+     </div>
+}
+<button onclick="history.back()">Скасувати</button>
