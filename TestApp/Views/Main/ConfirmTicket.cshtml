@@ -7,34 +7,38 @@
 
 
 <h1>Підтвердження купівлі квитка</h1>
-<label>2/2</label>
+<h5><span class="num">2</span>/2</h5>
 
-<div>
-    № рейсу:
-    @Html.DisplayFor(model => model.Flight.FID)<br>
+<div class="conf-ticket">
+    <label>№ рейсу:</label>
+    <span>@Html.DisplayFor(model => model.Flight.FID)</span><br>
 
-    Дата відправлення:
-    @Model.Flight.date.ToString("yyyy-MM-dd"))<br>
+    <label>Дата відправлення:</label>
+    
+    <span>@Model.Flight.date.ToString("yyyy-MM-dd")</span><br>
 
-    Відправлення з:
-    @Model.Flight.departure_point<br>
+    <label>Відправлення з:</label>
+    <span>@Model.Flight.departure_point</span><br>
 
-    Прибуття до:
-    @Html.DisplayFor(model => model.Flight.destination)<br>
+    <label>Прибуття до:</label>
+    <span>@Html.DisplayFor(model => model.Flight.destination)</span><br>
 
-    Час відпрвлення:
-    @Model.Flight.dep_time.ToString("HH:mm")<br>
+    <label>Час відпрвлення:</label>
+    <span>@Model.Flight.dep_time.ToString("HH:mm")</span><br>
 
-    Час прибуття:
-    @Model.Flight.arrival_time.ToString("HH:mm")<br>
+    <label>Час прибуття:</label>
+    <span>@Model.Flight.arrival_time.ToString("HH:mm")</span><br>
 
-    Пасажир:
-    @Model.passenger_first @Model.passenger_last <br>
+    <label>Пасажир:</label>
+    <span>@Model.passenger_first @Model.passenger_last</span> <br>
 
-    Ціна (грн):
-    @Model.Flight.ticket_price<br>
+    <label>Ціна (грн):</label>
+    <span>@Model.Flight.ticket_price</span><br>
 
-    <button>Підтвердити</button> <button onclick="history.back()">Скасувати</button><br>
+    <div class="bot-nav">
+        <button class="btn btn-danger" onclick="history.back()">Скасувати</button> <button class="btn btn-success">Підтвердити</button><br>
+    </div>
+    
 
 
 </div>

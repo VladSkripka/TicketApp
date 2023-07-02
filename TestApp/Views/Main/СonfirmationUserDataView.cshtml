@@ -7,16 +7,16 @@
 
 <h1>Підтвердження купівлі квитка</h1>
 
-<label>1/2</label>
+<h5><span class="num">1</span>/2</h5>
 @using (Html.BeginForm("ConfirmTicket", "Main", FormMethod.Post))
 {
-     <div style="text-align:center">
-            <label for="user_last">Введіть ваше Прізвище</label>
-            <input type="text" id="user_last" name="passenger_last">
-            <br>
-            <label for="user_first">Введіть ваше Ім'я</label>
-            <input type="text" id="user_first" name="passenger_first">
-            <br>
+     <div class="conf-data">
+        <label class="form-label" for="user_last">Введіть ваше <span>Прізвище</span></label>
+        <input class="form-control" type="text" id="user_last" name="passenger_last">
+        <br>
+        <label class="form-label" for="user_first">Введіть ваше <span>Ім'я</span></label>
+        <input class="form-control" type="text" id="user_first" name="passenger_first">
+        <br>
 
             @Html.HiddenFor(model => model.ID)
             @Html.HiddenFor(model => model.Flight.FID)
@@ -28,9 +28,11 @@
             @Html.HiddenFor(model => model.Flight.ticket_price)
             @Html.HiddenFor(model => model.Flight.sites)
             @Html.HiddenFor(model => model.Flight.sites_left)
-
-        <input type="submit" value="Далі">
-        
+  
+     </div>
+     <div class="sub">
+        <input class="btn btn-success" type="submit" value="Далі">
      </div>
 }
-<button onclick="history.back()">Скасувати</button>
+<button class="btn btn-danger" onclick="history.back()">Скасувати</button>
+

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.VisualBasic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TestApp.Models
@@ -16,6 +17,7 @@ namespace TestApp.Models
         public float ticket_price { get; set; }
         public int sites { get; set; }
         public int sites_left { get; set; }
+        [ValidateNever]
         public ICollection<Ticket> Tickets { get; set; }
     }
 

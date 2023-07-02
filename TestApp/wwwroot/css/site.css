@@ -14,5 +14,83 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+.btn-primary {
+    margin-top: 35vh;
+}
+
+.search-div {
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-top: 25vh;
+    box-shadow: rgba(0, 0, 255, 0.3) 0.5px 0px 20px 3px;
+}
+.search-div label {
+    margin-left: 20px;
+    margin-top:20px;
+}
+.search-div input[type="text"] {
+    width:80%;
+    margin-left:10%;
+}
+.submit-div{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.submit-div .btn-primary {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.table {
+    text-align:center;
+    height:60vh;
+}
+.link{
+    color:rgb(32, 142, 0);
+}
+
+.conf-data{
+    margin-top:6vh;
+    width: 70%;
+    margin-left:15%;
+}
+.conf-data label{
+    margin-left:10%;
+    margin-bottom:20px;
+}
+.conf-data input[type="text"] {
+    width: 70%;
+    margin-left:15%;
+}
+.conf-data span{
+    color:rgb(96, 104, 255)
+}
+.sub{
+    text-align:center;
+    font-weight:bold;
+}
+h5 {
+    color:rgb(96, 104, 255)
+}
+.num{
+    color:rgb(255, 0, 0)
+}
+
+.bot-nav{
+    margin-top:15px;
+    text-align:center;
+}
+.conf-ticket {
+    margin-top:20px;
+}
+.conf-ticket label{
+    margin-top:10px;
+}
+.conf-ticket span{
+    color:blue;
+    font-weight:bold;
 }

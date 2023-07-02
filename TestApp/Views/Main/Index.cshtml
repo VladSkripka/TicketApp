@@ -6,14 +6,18 @@
 
 @using (Html.BeginForm("Search", "Main", FormMethod.Post))
 {
-    <div style="text-align:center">
-       <label for="departurePoint">Departure Point:</label>
-       <input type="text" id="departurePoint" name="DeparturePoint">
+    <div class="search-div">
 
-       <label for="destination">Destination:</label>
-       <input type="text" id="destination" name="Destination">
+        <label for="departurePoint" class="form-label">Відправлення з:</label>
+        <input class="form-control" type="text" id="departurePoint" name="DeparturePoint" placeholder="Київ...">
 
-       <input type="submit" value="Search">
+        <label for="destination" class="form-label">Прибуття до:</label>
+        <input class="form-control" type="text" id="destination" name="Destination" placeholder="Івано-Франківськ...">
+
+        <div class="submit-div">
+            <input class="btn-primary" id="submitbot" type="submit" value="Шукати">
+        </div>
+        
     </div>
 
 }
