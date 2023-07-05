@@ -9,38 +9,44 @@
 <h1>Підтвердження купівлі квитка</h1>
 <h5><span class="num">2</span>/2</h5>
 
-<div class="conf-ticket">
-    <label>№ рейсу:</label>
-    <span>@Html.DisplayFor(model => model.Flight.FID)</span><br>
+@using (Html.BeginForm("CreateTicket", "Tickets", FormMethod.Post))
+{
+    <div class="conf-ticket">
+        <label>№ рейсу:</label>
+        <span>@Html.DisplayFor(model => model.Flight.FID)</span><br>
 
-    <label>Дата відправлення:</label>
+        <label>Дата відправлення:</label>
     
-    <span>@Model.Flight.date.ToString("yyyy-MM-dd")</span><br>
+        <span>@Model.Flight.date.ToString("yyyy-MM-dd")</span><br>
 
-    <label>Відправлення з:</label>
-    <span>@Model.Flight.departure_point</span><br>
+        <label>Відправлення з:</label>
+        <span>@Model.Flight.departure_point</span><br>
 
-    <label>Прибуття до:</label>
-    <span>@Html.DisplayFor(model => model.Flight.destination)</span><br>
+        <label>Прибуття до:</label>
+        <span>@Html.DisplayFor(model => model.Flight.destination)</span><br>
 
-    <label>Час відпрвлення:</label>
-    <span>@Model.Flight.dep_time.ToString("HH:mm")</span><br>
+        <label>Час відпрвлення:</label>
+        <span>@Model.Flight.dep_time.ToString("HH:mm")</span><br>
 
-    <label>Час прибуття:</label>
-    <span>@Model.Flight.arrival_time.ToString("HH:mm")</span><br>
+        <label>Час прибуття:</label>
+        <span>@Model.Flight.arrival_time.ToString("HH:mm")</span><br>
 
-    <label>Пасажир:</label>
-    <span>@Model.passenger_first @Model.passenger_last</span> <br>
+        <label>Пасажир:</label>
+        <span>@Model.passenger_first @Model.passenger_last</span> <br>
 
-    <label>Ціна (грн):</label>
-    <span>@Model.Flight.ticket_price</span><br>
+        <label>Ціна (грн):</label>
+        <span>@Model.Flight.ticket_price</span><br>
 
-    <div class="bot-nav">
-        <button class="btn btn-danger" onclick="history.back()">Скасувати</button> <button class="btn btn-success">Підтвердити</button><br>
+        <div class="bot-nav">
+             <button class="btn btn-success">Підтвердити</button><br>
+        </div>
     </div>
-    
 
-
-</div>
-
-
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.passenger_first)
+    @Html.HiddenFor(model => model.passenger_last)
+    @Html.HiddenFor(model => model.Flight.FID)
+    @Html.HiddenFor(model => model.Flight.PublicID)
+    @Html.HiddenFor(model => model.Flight.sites_left)
+}
+<button class="btn btn-danger" onclick="history.back()">Скасувати</button>

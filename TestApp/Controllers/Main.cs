@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 using TestApp.Data;
 using TestApp.Models;
 
@@ -25,9 +26,21 @@ namespace TestApp.Controllers
         {
             var results = _context.Flights.Where(flight =>
                  flight.departure_point == model.DeparturePoint&&
-                 flight.destination == model.Destination);
+                 flight.destination == model.Destination &&
+                 flight.sites_left>0);
+
+            foreach (var flight in results)
+            {
+                var soldTicketsCount = await _context.Tickets.CountAsync(t => t.Flight.PublicID == flight.PublicID);
+                flight.sites_left = flight.sites - soldTicketsCount;
+                var sqlUpdate = "UPDATE Flights " +
+                $"SET sites_left = {flight.sites_left} " +
+                $"WHERE PublicID = '{flight.PublicID}';";
+                _context.Database.ExecuteSqlRaw(sqlUpdate);
+            }
             return View(results);
         }
+
 
         public async Task<IActionResult> СonfirmationUserDataView(int? ID)
         {
@@ -52,5 +65,6 @@ namespace TestApp.Controllers
         {
             return View(model);
         }
+        
     }
 }

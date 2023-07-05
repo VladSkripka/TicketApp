@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,9 +25,20 @@ namespace TestApp.Controllers
         // GET: Flights
         public async Task<IActionResult> Index()
         {
-              return _context.Flights != null ? 
-                          View(await _context.Flights.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Flights'  is null.");
+            var flights = await _context.Flights.ToListAsync();
+
+            foreach (var flight in flights)
+            {
+                var soldTicketsCount = await _context.Tickets.CountAsync(t => t.Flight.PublicID == flight.PublicID);
+                flight.sites_left = flight.sites - soldTicketsCount;
+                var sqlUpdate = "UPDATE Flights " +
+                $"SET sites_left = {flight.sites_left} " +
+                $"WHERE PublicID = '{flight.PublicID}';";
+
+                _context.Database.ExecuteSqlRaw(sqlUpdate);
+            }
+
+            return View(flights);
         }
 
         // GET: Flights/Details/5

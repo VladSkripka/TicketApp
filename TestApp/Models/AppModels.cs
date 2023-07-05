@@ -28,6 +28,7 @@ namespace TestApp.Models
         public int Public_ID { get; set; }
         public string passenger_first { get; set; }
         public string passenger_last { get; set; }
+        [ValidateNever]
         public Flight Flight { get; set; }
     }
 

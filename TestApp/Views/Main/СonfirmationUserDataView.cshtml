@@ -10,15 +10,20 @@
 <h5><span class="num">1</span>/2</h5>
 @using (Html.BeginForm("ConfirmTicket", "Main", FormMethod.Post))
 {
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
      <div class="conf-data">
         <label class="form-label" for="user_last">Введіть ваше <span>Прізвище</span></label>
-        <input class="form-control" type="text" id="user_last" name="passenger_last">
+        <input asp-for="passenger_last" class="form-control" type="text" id="user_last" name="passenger_last">
+        <span asp-validation-for="passenger_last" class="text-danger"></span>
         <br>
         <label class="form-label" for="user_first">Введіть ваше <span>Ім'я</span></label>
-        <input class="form-control" type="text" id="user_first" name="passenger_first">
+        <input asp-for="passenger_first" class="form-control" type="text" id="user_first" name="passenger_first">
+        <span asp-validation-for="passenger_first" class="text-danger"></span>
+
         <br>
 
             @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.Flight.PublicID)
             @Html.HiddenFor(model => model.Flight.FID)
             @Html.HiddenFor(model => model.Flight.departure_point)
             @Html.HiddenFor(model => model.Flight.destination)

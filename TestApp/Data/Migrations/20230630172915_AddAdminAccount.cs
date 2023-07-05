@@ -13,6 +13,7 @@ namespace TestApp.Data.Migrations
 
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            //var hasher = new 
             var password = "adminuser";
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("INSERT INTO AspNetUsers(Id, UserName, NormalizedUserName, Email, NormalizedEmail, EmailConfirmed, PAsswordHash, " +

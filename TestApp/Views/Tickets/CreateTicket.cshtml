@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+}
+@model TestApp.Models.Ticket
+
+<h1>Дякуємо за покупку!</h1>
+
+
+
+<a class="btn btn-primary index" asp-controller="Main" asp-action="Index">Повернутись на головну</a>
+<a asp-controller="Tickets" asp-action="DownloadDoc" asp-route-id="@Model.Public_ID" class="btn btn-primary index">Скачати білет</a>
+
